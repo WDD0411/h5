@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>王者荣耀2026周年庆 · 国潮漫画祝福H5</title>
+<meta name="description" content="王者荣耀2026周年庆国潮漫画祝福H5：李白、韩信、嫦娥联袂送福，峡谷共此时。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='4' y='4' width='56' height='56' rx='12' fill='%23C13A2C' stroke='%23E8B34B' stroke-width='3'/%3E%3Ctext x='32' y='44' font-size='30' font-family='KaiTi,STKaiti,serif' fill='%23F9F0E2' text-anchor='middle'%3E贺%3C/text%3E%3C/svg%3E">
+<style>
+/* ===== 设计令牌 ===== */
+:root{
+  --ink:#160c0a; --ink-2:#24120e; --bg-0:#1a0d0b; --bg-1:#2b1512;
+  --red:#C13A2C; --red-deep:#8f2418;
+  --gold:#E8B34B; --gold-hi:#F2D488; --gold-lo:#B07A22;
+  --cream:#F5EBDC; --paper:#F7EFE2; --text:#241510;
+  --kai:'STKaiti','KaiTi','楷体','Kaiti SC',serif;
+  --sans:'PingFang SC','Microsoft YaHei','Hiragino Sans GB',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:auto}
+body{
+  font-family:var(--sans); color:var(--cream); background:var(--bg-0);
+  background-image:radial-gradient(120% 90% at 50% 0%, var(--bg-1) 0%, var(--bg-0) 55%, #120807 100%);
+  background-attachment:fixed;
+  min-height:100vh; overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+body::before{ /* 祥云暗纹 */
+  content:''; position:fixed; inset:0; pointer-events:none; z-index:0; opacity:.8;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='80' viewBox='0 0 200 80'%3E%3Cg fill='%23E8B34B' opacity='0.055'%3E%3Ccircle cx='30' cy='46' r='13'/%3E%3Ccircle cx='52' cy='40' r='17'/%3E%3Ccircle cx='78' cy='45' r='12'/%3E%3Crect x='26' y='44' width='56' height='17' rx='8.5'/%3E%3Ccircle cx='150' cy='58' r='11'/%3E%3Ccircle cx='170' cy='52' r='14'/%3E%3Crect x='145' y='55' width='36' height='13' rx='6.5'/%3E%3C/g%3E%3C/svg%3E");
+  background-size:200px 80px;
+}
+img{display:block;max-width:100%}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+
+/* ===== 加载屏 ===== */
+#loader{
+  position:fixed; inset:0; z-index:99; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:18px;
+  background:radial-gradient(120% 90% at 50% 0%, var(--bg-1) 0%, var(--bg-0) 60%, #120807 100%);
+  transition:opacity .55s ease, visibility .55s ease;
+}
+#loader.done{opacity:0;visibility:hidden;pointer-events:none}
+#loader .ld-title{font-family:var(--kai);font-size:26px;color:var(--gold-hi);letter-spacing:6px;text-shadow:0 2px 0 rgba(0,0,0,.5)}
+#loader .ld-sub{font-size:13px;color:rgba(245,235,220,.65);letter-spacing:3px}
+#loader .ld-track{width:200px;height:10px;border:2px solid var(--gold);border-radius:6px;overflow:hidden;background:rgba(0,0,0,.35)}
+#loader .ld-bar{height:100%;width:0;background:linear-gradient(90deg,var(--red),var(--gold));border-radius:4px;transition:width .15s linear}
+#loader .ld-pct{font-family:var(--kai);font-size:14px;color:var(--gold)}
+
+/* ===== 布局 ===== */
+.page{position:relative;z-index:1;max-width:520px;margin:0 auto;padding:0 16px}
+section{position:relative}
+
+/* ===== 封面 ===== */
+.cover{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px 0 20px;text-align:center}
+.eyebrow{font-size:12px;letter-spacing:4px;color:var(--gold);border:1px solid rgba(232,179,75,.55);border-radius:999px;padding:5px 14px;margin-bottom:14px;background:rgba(0,0,0,.28)}
+.cover h1{
+  font-family:var(--kai);font-weight:700;font-size:clamp(38px,13vw,52px);letter-spacing:8px;line-height:1.15;margin-bottom:10px;
+  background:linear-gradient(180deg,var(--gold-hi) 0%,var(--gold) 45%,var(--gold-lo) 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 3px 0 rgba(0,0,0,.55)) drop-shadow(0 0 14px rgba(232,179,75,.35));
+  padding-left:10px; /* 抵消letter-spacing末字空隙 */
+}
+.cover .sub{font-size:14px;letter-spacing:2px;color:var(--cream);opacity:.92;margin-bottom:26px}
+.cover .sub b{color:var(--gold-hi);font-weight:600}
+.frame{
+  position:relative;width:min(78vw,380px);border:4px solid var(--ink);border-radius:8px;
+  box-shadow:0 0 0 2px var(--gold), 10px 12px 0 rgba(0,0,0,.42);
+  transform:rotate(-1deg);
+}
+.frame img{width:100%;height:auto;border-radius:3px}
+.frame .sfx{position:absolute;font-family:var(--kai);font-size:34px;color:var(--gold-hi);opacity:.85;text-shadow:0 2px 0 rgba(0,0,0,.6);transform:rotate(9deg)}
+.frame .sfx.s1{top:-26px;right:16px}
+.hint{margin-top:26px;display:flex;flex-direction:column;align-items:center;gap:6px;font-size:13px;letter-spacing:3px;color:rgba(245,235,220,.78)}
+.hint .arr{width:22px;height:22px;border-right:2.5px solid var(--gold);border-bottom:2.5px solid var(--gold);transform:rotate(45deg);animation:hintMove 1.6s ease-in-out infinite}
+@keyframes hintMove{0%,100%{transform:rotate(45deg) translateY(0);opacity:.9}50%{transform:rotate(45deg) translateY(7px);opacity:.45}}
+
+/* ===== 序章 ===== */
+.prologue{padding:56px 6px 26px;text-align:center}
+.narr{
+  position:relative;background:linear-gradient(160deg,#24120e,#180c0a);border:2px solid var(--gold);
+  border-radius:10px;padding:26px 22px 22px;text-align:left;
+  box-shadow:6px 6px 0 rgba(0,0,0,.4);
+}
+.narr .seal-mini{position:absolute;top:-14px;left:18px;background:var(--red);color:#fff;font-family:var(--kai);font-size:15px;padding:3px 10px;border-radius:4px;border:1.5px solid var(--ink);box-shadow:0 2px 0 rgba(0,0,0,.4);transform:rotate(-3deg)}
+.narr p{font-family:var(--kai);font-size:17px;line-height:2;color:var(--cream);letter-spacing:1px}
+.narr p .hl{color:var(--gold-hi)}
+
+/* ===== 章节 ===== */
+.chapter{padding:54px 0 10px}
+.ch-head{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.ch-num{background:var(--red);color:#fff;font-family:var(--kai);font-size:15px;padding:4px 11px;border-radius:4px;border:2px solid var(--ink);box-shadow:2px 2px 0 rgba(0,0,0,.45);transform:rotate(-2deg)}
+.ch-name{font-family:var(--kai);font-size:24px;color:var(--gold-hi);letter-spacing:3px;text-shadow:0 2px 0 rgba(0,0,0,.5)}
+.ch-hero{margin-left:auto;font-family:var(--kai);font-size:14px;color:var(--cream);border:1.5px solid rgba(245,235,220,.5);padding:3px 10px;border-radius:999px;background:rgba(0,0,0,.25)}
+.panel{
+  position:relative;border:4px solid var(--ink);border-radius:8px;
+  box-shadow:0 0 0 2px var(--gold), 9px 11px 0 rgba(0,0,0,.42);
+  background:var(--paper);
+}
+.panel img{width:100%;height:auto;border-radius:3px}
+.bubble{
+  position:absolute;left:14px;right:14px;bottom:14px;
+  background:rgba(247,239,226,.965);border:2.5px solid var(--ink);border-radius:16px;
+  padding:12px 15px;font-size:15px;line-height:1.75;color:var(--text);
+  box-shadow:4px 4px 0 rgba(0,0,0,.35);
+}
+.bubble::before{content:'';position:absolute;top:-12px;left:30px;border:11px solid transparent;border-bottom-color:var(--ink)}
+.bubble::after{content:'';position:absolute;top:-8px;left:33px;border:8px solid transparent;border-bottom-color:rgba(247,239,226,.965)}
+.bubble .who{display:inline-block;font-family:var(--kai);font-size:13px;color:var(--red-deep);font-weight:700;margin-bottom:4px;letter-spacing:1px}
+.seal{
+  display:inline-block;margin-top:20px;margin-left:auto;transform:rotate(-3deg);
+  background:var(--red);color:#fff;font-family:var(--kai);font-size:19px;font-weight:700;letter-spacing:4px;padding:8px 16px;border-radius:6px;
+  box-shadow:0 0 0 2px var(--cream) inset, 4px 4px 0 rgba(0,0,0,.45);
+}
+.seal-row{display:flex;justify-content:flex-end}
+
+/* ===== 尾声 ===== */
+.ending{padding:60px 0 40px;position:relative}
+#fx{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1}
+.ending .inner{position:relative;z-index:2;text-align:center}
+.ending .e-eyebrow{font-size:12px;letter-spacing:4px;color:var(--gold);margin-bottom:12px}
+.ending h2{font-family:var(--kai);font-size:34px;letter-spacing:6px;line-height:1.3;margin-bottom:8px;
+  background:linear-gradient(180deg,var(--gold-hi),var(--gold) 55%,var(--gold-lo));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 3px 0 rgba(0,0,0,.5));padding-left:6px}
+.ending .e-sub{font-size:14px;letter-spacing:2px;color:var(--cream);opacity:.9;margin-bottom:22px}
+.ending .frame{margin:0 auto;transform:rotate(.8deg)}
+.ending .bless{
+  margin:26px auto 22px;max-width:400px;background:linear-gradient(160deg,#24120e,#180c0a);
+  border:2px solid var(--gold);border-radius:10px;padding:16px 20px;
+  font-family:var(--kai);font-size:18px;line-height:1.9;color:var(--cream);letter-spacing:1px;
+  box-shadow:6px 6px 0 rgba(0,0,0,.4);
+}
+.cta{
+  position:relative;display:inline-flex;align-items:center;gap:8px;width:min(88%,420px);
+  justify-content:center;padding:16px 0;border-radius:999px;
+  background:linear-gradient(180deg,#D84838 0%,var(--red) 55%,var(--red-deep) 100%);
+  border:3px solid var(--ink);box-shadow:0 0 0 2px var(--gold), 0 6px 0 var(--ink-2), 0 10px 18px rgba(0,0,0,.45);
+  font-size:18px;font-weight:700;letter-spacing:4px;color:#fff;
+  transition:transform .12s ease, box-shadow .12s ease;
+}
+.cta:active{transform:translateY(4px);box-shadow:0 0 0 2px var(--gold), 0 2px 0 var(--ink-2), 0 6px 12px rgba(0,0,0,.4)}
+.cta svg{width:20px;height:20px;fill:#fff}
+.cta-note{margin-top:14px;font-size:12px;color:rgba(245,235,220,.6);letter-spacing:2px}
+#copyBtn{margin-top:10px;font-size:14px;color:var(--gold);text-decoration:underline;padding:10px 6px;letter-spacing:1px}
+
+/* ===== 页脚 ===== */
+footer{padding:34px 16px 44px;text-align:center;font-size:11px;line-height:1.9;color:rgba(245,235,220,.45);letter-spacing:1px}
+footer .ft-gold{color:rgba(232,179,75,.7)}
+
+/* ===== 提示 toast ===== */
+#toast{
+  position:fixed;left:50%;bottom:44px;transform:translate(-50%,20px);z-index:80;
+  background:var(--paper);color:var(--text);font-size:14px;padding:11px 20px;border-radius:999px;
+  border:2px solid var(--ink);box-shadow:4px 4px 0 rgba(0,0,0,.4);
+  opacity:0;pointer-events:none;transition:opacity .25s ease, transform .25s ease;white-space:nowrap;
+}
+#toast.show{opacity:1;transform:translate(-50%,0)}
+
+/* ===== 滚动揭示 ===== */
+html.js .reveal{opacity:0;transform:translateY(30px) rotate(1.1deg);transition:opacity .7s ease, transform .7s ease}
+html.js .reveal.in{opacity:1;transform:none}
+html.js .reveal .bubble{transition:opacity .5s ease .15s, transform .5s ease .15s;opacity:0;transform:translateY(12px)}
+html.js .reveal.in .bubble{opacity:1;transform:none}
+html.js .reveal .seal{transition:opacity .5s ease .3s, transform .5s ease .3s}
+html.js .reveal.in .seal{transform:rotate(-3deg)}
+html.js .reveal .seal{opacity:0}
+html.js .reveal.in .seal{opacity:1}
+
+/* ===== 动效降级 ===== */
+@media (prefers-reduced-motion: reduce){
+  .hint .arr{animation:none}
+  html.js .reveal{opacity:1;transform:none;transition:none}
+  html.js .reveal .bubble{opacity:1;transform:none;transition:none}
+  html.js .reveal .seal{opacity:1;transform:rotate(-3deg)}
+}
+
+/* ===== 桌面适配 ===== */
+@media (min-width:768px){
+  body::after{
+    content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='90' viewBox='0 0 120 90'%3E%3Cg fill='none' stroke='%23E8B34B' stroke-opacity='0.16'%3E%3Cpath d='M18 66c-8 0-13 5-13 12s5 12 13 12h84c9 0 15-5 15-12s-6-12-15-12c-1-13-12-24-27-24-8 0-14 2-19 6-5-8-13-12-22-12-13 0-23 9-23 21-1 0-2 0-3 0z'/%3E%3C/g%3E%3C/svg%3E"),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='90' viewBox='0 0 120 90'%3E%3Cg fill='none' stroke='%23E8B34B' stroke-opacity='0.16'%3E%3Cpath d='M18 66c-8 0-13 5-13 12s5 12 13 12h84c9 0 15-5 15-12s-6-12-15-12c-1-13-12-24-27-24-8 0-14 2-19 6-5-8-13-12-22-12-13 0-23 9-23 21-1 0-2 0-3 0z'/%3E%3C/g%3E%3C/svg%3E");
+    background-repeat:no-repeat,no-repeat;
+    background-position:left 2vw center,right 2vw center;
+    background-size:120px 90px,120px 90px;
+  }
+  .page{max-width:520px}
+  .cover .frame{width:380px}
+  .panel{width:100%}
+  .bubble{font-size:16px}
+}
+/* ===== 音乐按钮 ===== */
+.music-btn{
+  position:fixed;top:14px;right:14px;z-index:70;display:flex;align-items:center;gap:7px;
+  background:rgba(22,12,10,.8);border:1.5px solid var(--gold);color:var(--gold-hi);
+  border-radius:999px;padding:10px 15px;font-size:13px;letter-spacing:1px;min-height:44px;
+  box-shadow:0 4px 14px rgba(0,0,0,.4),0 0 0 1px rgba(0,0,0,.3);
+}
+.music-btn svg{width:16px;height:16px;fill:currentColor}
+.music-btn .ic-off{display:none}
+.music-btn.playing .ic-on{display:none}
+.music-btn.playing .ic-off{display:block}
+.music-btn .pulse{position:absolute;inset:0;border-radius:999px;border:1.5px solid var(--gold);opacity:0;pointer-events:none}
+@media (prefers-reduced-motion: no-preference){
+  .music-btn:not(.playing) .pulse{animation:pulseRing 2.4s ease-out infinite}
+}
+@keyframes pulseRing{0%{transform:scale(1);opacity:.7}70%{transform:scale(1.3);opacity:0}100%{opacity:0}}
+
+/* ===== 动态画面 ===== */
+.frame-zoom{overflow:hidden;border-radius:3px}
+@media (prefers-reduced-motion: no-preference){
+  .frame-zoom img,.panel img{transform-origin:50% 42%;animation:kenburns 26s ease-in-out infinite alternate}
+  .frame-zoom img{animation-duration:22s}
+  .panel{overflow:hidden}
+  .cover h1,.ending h2{
+    background:linear-gradient(105deg,var(--gold-hi) 0%,var(--gold) 28%,#FFF6DC 46%,var(--gold-hi) 60%,var(--gold-lo) 100%);
+    background-size:260% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;
+    animation:shimmer 7s ease-in-out infinite;
+  }
+  .cloud-drift{animation:driftBg 90s linear infinite}
+  .cloud-drift.d2{animation-duration:150s;animation-direction:reverse}
+  .lantern{animation:sway 5s ease-in-out infinite}
+  .lantern.l2{animation-delay:1.3s}
+}
+@keyframes kenburns{from{transform:scale(1)}to{transform:scale(1.08)}}
+@keyframes shimmer{0%{background-position:0% 50%}100%{background-position:100% 50%}}
+@keyframes driftBg{from{background-position-x:0}to{background-position-x:-260px}}
+@keyframes sway{0%,100%{transform:rotate(4deg)}50%{transform:rotate(-4deg)}}
+
+/* ===== 祥云浮动层 ===== */
+.cloud-drift{
+  position:absolute;left:0;top:10%;width:100%;height:90px;pointer-events:none;z-index:0;opacity:.5;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='90' viewBox='0 0 260 90'%3E%3Cg fill='%23E8B34B' opacity='0.16'%3E%3Ccircle cx='40' cy='52' r='15'/%3E%3Ccircle cx='66' cy='45' r='20'/%3E%3Ccircle cx='96' cy='50' r='14'/%3E%3Crect x='36' y='48' width='66' height='19' rx='9.5'/%3E%3Ccircle cx='180' cy='58' r='13'/%3E%3Ccircle cx='204' cy='51' r='17'/%3E%3Crect x='175' y='55' width='38' height='14' rx='7'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat:repeat-x;background-size:260px 90px;
+}
+.cloud-drift.d2{top:72%;opacity:.3;height:70px}
+.cover > *:not(.cloud-drift){position:relative;z-index:1}
+
+/* ===== 灯笼装饰 ===== */
+.lantern{position:fixed;z-index:5;pointer-events:none;opacity:.85;transform-origin:top center}
+.lantern.l1{top:8px;left:12px;width:34px}
+.lantern.l2{top:70px;right:12px;width:26px}
+@media (min-width:768px){.lantern.l1{left:5vw}.lantern.l2{right:5vw;top:34px}}
+</style>
+</head>
+<body>
+
+<!-- ===== 灯笼装饰 ===== -->
+<svg class="lantern l1" viewBox="0 0 40 64" aria-hidden="true"><rect x="16" y="2" width="8" height="5" rx="1.5" fill="#8f2418"/><path d="M8 8h24l-3 6H11z" fill="#B07A22"/><rect x="9" y="14" width="22" height="34" rx="9" fill="#C13A2C" stroke="#E8B34B" stroke-width="1.5"/><line x1="20" y1="14" x2="20" y2="48" stroke="#E8B34B" stroke-width="1.2" opacity=".8"/><rect x="11" y="48" width="18" height="4" rx="2" fill="#B07A22"/><path d="M18 52h4l-2 8z" fill="#F2D488"/><line x1="20" y1="60" x2="20" y2="64" stroke="#F2D488" stroke-width="1.5"/></svg>
+<svg class="lantern l2" viewBox="0 0 40 64" aria-hidden="true"><rect x="16" y="2" width="8" height="5" rx="1.5" fill="#8f2418"/><path d="M8 8h24l-3 6H11z" fill="#B07A22"/><rect x="9" y="14" width="22" height="34" rx="9" fill="#C13A2C" stroke="#E8B34B" stroke-width="1.5"/><line x1="20" y1="14" x2="20" y2="48" stroke="#E8B34B" stroke-width="1.2" opacity=".8"/><rect x="11" y="48" width="18" height="4" rx="2" fill="#B07A22"/><path d="M18 52h4l-2 8z" fill="#F2D488"/><line x1="20" y1="60" x2="20" y2="64" stroke="#F2D488" stroke-width="1.5"/></svg>
+
+<!-- ===== 音乐开关 ===== -->
+<button id="musicBtn" class="music-btn" type="button" aria-label="开启背景音乐">
+  <span class="pulse" aria-hidden="true"></span>
+  <svg class="ic-on" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v10.55A4 4 0 1 0 14 17V7h4V3h-6z"/></svg>
+  <svg class="ic-off" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v10.55A4 4 0 1 0 14 17V7h4V3h-6z"/><path d="M4 20L20 4" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+  <span id="musicLabel">开启音乐</span>
+</button>
+
+<!-- ===== 加载屏 ===== -->
+<div id="loader" aria-hidden="true">
+  <div class="ld-title">峡谷集结中</div>
+  <div class="ld-sub">国潮漫画 · 贺岁连载</div>
+  <div class="ld-track"><div class="ld-bar" id="loadBar"></div></div>
+  <div class="ld-pct" id="loadPct">0%</div>
+</div>
+
+<!-- ===== 正文 ===== -->
+<div class="page">
+
+  <!-- 封面 -->
+  <section class="cover">
+    <div class="eyebrow">王者荣耀 · 2026 周年庆</div>
+    <h1>峡谷共此时</h1>
+    <p class="sub">国潮漫画贺岁 · <b>李白</b> / <b>韩信</b> / <b>嫦娥</b> 联袂送福</p>
+    <div class="frame">
+      <span class="sfx s1">飒</span>
+      <div class="frame-zoom"><img src="assets/cover.jpg" alt="国潮漫画封面：李白、韩信、嫦娥三位英雄并立贺岁" width="1773" height="2364"></div>
+    </div>
+    <div class="hint">
+      <span>向上滑动 · 开启贺岁漫画</span>
+      <span class="arr" aria-hidden="true"></span>
+    </div>
+    <div class="cloud-drift" aria-hidden="true"></div>
+    <div class="cloud-drift d2" aria-hidden="true"></div>
+  </section>
+
+  <!-- 序章 -->
+  <section class="prologue">
+    <div class="narr reveal">
+      <span class="seal-mini">序</span>
+      <p>峡谷烽烟十载，感谢一路同行。<br>周年之夜，三位故人自八方而来，为你送上祝福——<span class="hl">愿此刻，峡谷共此时。</span></p>
+    </div>
+  </section>
+
+  <!-- 第一章 -->
+  <section class="chapter" id="ch1">
+    <div class="ch-head">
+      <span class="ch-num">第一章</span>
+      <span class="ch-name">诗剑千秋</span>
+      <span class="ch-hero">李白</span>
+    </div>
+    <figure class="panel reveal">
+      <img src="assets/ch1-libai.jpg" alt="第一章插图：李白月下挥剑起舞" width="1773" height="2364">
+      <figcaption class="bubble">
+        <span class="who">青莲剑仙 · 李白</span><br>
+        愿你的每一次开团，都如将进酒般酣畅；剑气纵横三万里，所向披靡。
+      </figcaption>
+    </figure>
+    <div class="seal-row reveal"><span class="seal">祝君 · 豪情万丈</span></div>
+  </section>
+
+  <!-- 第二章 -->
+  <section class="chapter" id="ch2">
+    <div class="ch-head">
+      <span class="ch-num">第二章</span>
+      <span class="ch-name">国士无双</span>
+      <span class="ch-hero">韩信</span>
+    </div>
+    <figure class="panel reveal">
+      <img src="assets/ch2-hanxin.jpg" alt="第二章插图：韩信立于帅旗之下" width="1773" height="2364">
+      <figcaption class="bubble">
+        <span class="who">国士无双 · 韩信</span><br>
+        兵仙谋略，决胜千里。愿你上分步步为营，人生落子无悔，每一战都打得漂亮。
+      </figcaption>
+    </figure>
+    <div class="seal-row reveal"><span class="seal">祝君 · 运筹帷幄</span></div>
+  </section>
+
+  <!-- 第三章 -->
+  <section class="chapter" id="ch3">
+    <div class="ch-head">
+      <span class="ch-num">第三章</span>
+      <span class="ch-name">月华流照</span>
+      <span class="ch-hero">嫦娥</span>
+    </div>
+    <figure class="panel reveal">
+      <img src="assets/ch3-change.jpg" alt="第三章插图：嫦娥怀抱玉兔立于月宫" width="1773" height="2364">
+      <figcaption class="bubble">
+        <span class="who">月宫仙子 · 嫦娥</span><br>
+        广寒宫前，玉兔相随。愿你的每个心愿都被月光照亮，温柔且有力量，好事成双。
+      </figcaption>
+    </figure>
+    <div class="seal-row reveal"><span class="seal">祝君 · 心想事成</span></div>
+  </section>
+
+  <!-- 尾声 -->
+  <section class="ending" id="endSec">
+    <canvas id="fx" aria-hidden="true"></canvas>
+    <div class="inner">
+      <div class="e-eyebrow">终章 · 贺</div>
+      <h2>三英聚首<br>峡谷共此时</h2>
+      <p class="e-sub">2026 周年庆 · 愿新的一岁，你仍是最强王者</p>
+      <div class="frame">
+        <img src="assets/ending.jpg" alt="尾声插图：三位英雄同框举杯贺岁" width="1773" height="2364">
+      </div>
+      <div class="bless">愿星火长明，愿峡谷常伴，愿你在这片江湖里，永远有并肩的人，永远有开团的勇气。</div>
+      <button class="cta" id="shareBtn" type="button">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 16.1c-.8 0-1.5.3-2.1.8L8.9 13c.1-.3.1-.6.1-.9s0-.6-.1-.9l7-3.9c.6.5 1.3.8 2.1.8 1.8 0 3.2-1.4 3.2-3.2S19.8 2.7 18 2.7 14.8 4.1 14.8 5.9c0 .3 0 .6.1.9l-7 3.9c-.6-.5-1.3-.8-2.1-.8C3.8 9.9 2.4 11.3 2.4 13s1.4 3.2 3.2 3.2c.8 0 1.5-.3 2.1-.8l7 3.9c0 .3-.1.6-.1.9 0 1.8 1.4 3.2 3.2 3.2s3.2-1.4 3.2-3.2-1.4-3.1-3-3.1z"/></svg>
+        转发接好运
+      </button>
+      <div>
+        <button id="copyBtn" type="button">长按或点击 · 复制祝福语</button>
+      </div>
+      <p class="cta-note">分享给并肩的队友，一起峡谷共此时</p>
+    </div>
+  </section>
+
+  <!-- 页脚 -->
+  <footer>
+    本页面为玩家同人创作，非官方内容；角色形象为原创插画。<br>
+    <span class="ft-gold">王者荣耀2026周年庆 · 贺</span>
+  </footer>
+
+</div>
+
+<audio id="bgm" src="assets/bgm.wav" loop preload="metadata"></audio>
+
+<div id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+  'use strict';
+  var doc = document;
+
+  /* 加载屏 */
+  var loader = doc.getElementById('loader');
+  var bar = doc.getElementById('loadBar');
+  var pct = doc.getElementById('loadPct');
+  var started = false;
+  function runLoader(){
+    if (started) return; started = true;
+    var p = 0;
+    var t = setInterval(function(){
+      p += Math.random()*16 + 7;
+      if (p >= 100) {
+        p = 100; clearInterval(t);
+        setTimeout(function(){ loader.classList.add('done'); }, 220);
+      }
+      bar.style.width = Math.min(100, p) + '%';
+      pct.textContent = Math.round(Math.min(100, p)) + '%';
+    }, 150);
+  }
+  if (doc.readyState === 'complete') runLoader();
+  else window.addEventListener('load', runLoader);
+  /* 兜底：3.5 秒后无论加载如何都放行 */
+  setTimeout(function(){ if(loader && !loader.classList.contains('done')) loader.classList.add('done'); }, 3500);
+
+  /* 滚动揭示 */
+  doc.documentElement.classList.add('js');
+  var els = doc.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -6% 0px' });
+    els.forEach(function(el){ io.observe(el); });
+  } else {
+    els.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  /* 烟花粒子（进入尾声触发；尊重降级动效） */
+  var fx = doc.getElementById('fx');
+  var endSec = doc.getElementById('endSec');
+  var particles = [], running = false, reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function fxResize(){
+    if (!fx) return;
+    var w = fx.offsetWidth, h = fx.offsetHeight;
+    fx.width = w * (window.devicePixelRatio || 1);
+    fx.height = h * (window.devicePixelRatio || 1);
+  }
+  function fxLaunch(){
+    var ctx = fx.getContext('2d');
+    var w = fx.offsetWidth, h = fx.offsetHeight;
+    var hues = [38, 42, 350, 355]; /* 金与红 */
+    var hue = hues[Math.floor(Math.random()*hues.length)];
+    var x = w * (0.15 + Math.random()*0.7);
+    var y = h * (0.08 + Math.random()*0.4);
+    var n = 52;
+    for (var i=0;i<n;i++){
+      var a = Math.PI*2*i/n + Math.random()*0.35;
+      var sp = 1.8 + Math.random()*3.6;
+      particles.push({
+        x:x, y:y,
+        vx:Math.cos(a)*sp, vy:Math.sin(a)*sp,
+        life:1, decay:0.012 + Math.random()*0.014,
+        hue:hue, size:1.5 + Math.random()*1.8
+      });
+    }
+  }
+  function fxTick(){
+    var ctx = fx.getContext('2d');
+    ctx.clearRect(0, 0, fx.width, fx.height);
+    particles = particles.filter(function(p){ return p.life > 0; });
+    var dpr = window.devicePixelRatio || 1;
+    particles.forEach(function(p){
+      p.x += p.vx; p.y += p.vy; p.vy += 0.032; p.life -= p.decay;
+      ctx.globalAlpha = Math.max(p.life, 0);
+      ctx.fillStyle = 'hsl(' + p.hue + ',92%,68%)';
+      ctx.beginPath();
+      ctx.arc(p.x*dpr, p.y*dpr, p.size*dpr, 0, 6.2832);
+      ctx.fill();
+    });
+    ctx.globalAlpha = 1;
+    if (particles.length) window.requestAnimationFrame(fxTick);
+    else running = false;
+  }
+  function fxBurst(){
+    if (reduced || !fx) return;
+    fxResize();
+    if (!running) { running = true; window.requestAnimationFrame(fxTick); }
+    fxLaunch(); fxLaunch();
+  }
+  if (fx && 'IntersectionObserver' in window && !reduced) {
+    var io2 = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting) { fxBurst(); io2.unobserve(en.target); }
+      });
+    }, { threshold: 0.25 });
+    io2.observe(endSec);
+    window.addEventListener('resize', function(){ fxResize(); });
+    endSec.addEventListener('click', fxBurst);
+  }
+
+  /* 分享与复制 */
+  var toast = doc.getElementById('toast');
+  var toastTimer = null;
+  function showToast(msg){
+    toast.textContent = msg;
+    toast.classList.add('show');
+    if (toastTimer) clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ toast.classList.remove('show'); }, 2400);
+  }
+  var BLESS = '三英聚首，峡谷共此时！王者荣耀2026周年庆，愿新的一岁，你仍是最强王者！';
+  function fallbackCopy(){
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      return navigator.clipboard.writeText(BLESS).then(function(){
+        showToast('祝福语已复制，去转发吧');
+      });
+    }
+    /* 极旧环境兜底 */
+    try {
+      var ta = doc.createElement('textarea');
+      ta.value = BLESS; ta.style.position='fixed'; ta.style.opacity='0';
+      doc.body.appendChild(ta); ta.select();
+      doc.execCommand('copy'); doc.body.removeChild(ta);
+      showToast('祝福语已复制，去转发吧');
+      return Promise.resolve();
+    } catch(e) { showToast('复制失败，请长按文字手动复制'); return Promise.reject(e); }
+  }
+  var shareBtn = doc.getElementById('shareBtn');
+  shareBtn.addEventListener('click', function(){
+    if (navigator.share) {
+      navigator.share({ title:'王者荣耀周年庆祝福', text: BLESS })
+        .then(function(){ showToast('已分享，好运传递！'); })
+        .catch(function(err){
+          if (err && err.name === 'AbortError') return;
+          fallbackCopy();
+        });
+    } else {
+      fallbackCopy();
+    }
+  });
+  doc.getElementById('copyBtn').addEventListener('click', fallbackCopy);
+
+  /* 背景音乐（用户手势开启，不自动播放） */
+  var bgm = doc.getElementById('bgm');
+  var musicBtn = doc.getElementById('musicBtn');
+  var musicLabel = doc.getElementById('musicLabel');
+  var musicOn = false;
+  function setMusicOn(on){
+    musicOn = on;
+    if (musicBtn) musicBtn.classList.toggle('playing', on);
+    if (musicLabel) musicLabel.textContent = on ? '关闭音乐' : '开启音乐';
+  }
+  if (bgm && musicBtn) {
+    musicBtn.addEventListener('click', function(){
+      if (!musicOn) {
+        var pr = bgm.play();
+        if (pr && pr.then) {
+          pr.then(function(){ setMusicOn(true); }).catch(function(){ showToast('音乐加载中，请稍后再点'); });
+        } else { setMusicOn(true); }
+      } else {
+        bgm.pause();
+        setMusicOn(false);
+      }
+    });
+    /* loop 属性兜底 */
+    bgm.addEventListener('ended', function(){ bgm.currentTime = 0; if (musicOn) bgm.play(); });
+  }
+})();
+</script>
+</body>
+</html>
